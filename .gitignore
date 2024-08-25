@@ -1,0 +1,14 @@
+# directus
+/data
+/extensions
+/uploads
+
+# env
+.env
+
+# ignore .sql
+*.sql
+
+# other
+.DS_Store
+.idea
