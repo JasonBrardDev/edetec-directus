@@ -6,8 +6,11 @@ start:
 stop:
 	docker-compose down
 
-dump:
+db-dump:
 	docker exec $(DOCKER_DB_NAME) mysqldump -u root -proot $(MYSQL_DATABASE) > $(MYSQL_DATABASE)-$(shell date +'%Y-%m-%d-%H-%M-%S').sql
+
+db-import:
+	docker exec -i $(DOCKER_DB_NAME) mysql -u root -p$(MYSQL_ROOT_PASSWORD) $(MYSQL_DATABASE) < $(SQL_FILE)
 
 schema-snapshot:
 	docker exec $(DOCKER_DIRECTUS_NAME) npx directus schema snapshot --yes ./snapshots/\$(shell date +'%Y-%m-%d-%H-%M-%S')\-snapshot.yaml
