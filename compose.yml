@@ -29,12 +29,14 @@ services:
             start_period: 30s
     
     directus:
-        image: directus/directus:11.0.2
+        image: directus/directus:11.1.0
         ports:
             - 8055:8055
         volumes:
             - ./uploads:/directus/uploads
             - ./extensions:/directus/extensions
+            - ./migrations:/directus/migrations
+            - ./snapshots:/directus/snapshots
         depends_on:
             database:
                 condition: service_healthy
@@ -43,6 +45,7 @@ services:
         environment:
             SECRET: "${SECRET}"
             
+            # Database
             DB_CLIENT: "mysql"
             DB_HOST: "database"
             DB_PORT: "3306"
@@ -50,11 +53,13 @@ services:
             DB_USER: "${MYSQL_USER}"
             DB_PASSWORD: "${MYSQL_PASSWORD}"
             
+            # Cache
             CACHE_ENABLED: "true"
             CACHE_AUTO_PURGE: "true"
             CACHE_STORE: "redis"
             REDIS: "redis://cache:6379"
             
+            # Directus
             ADMIN_EMAIL: "${ADMIN_EMAIL}"
             ADMIN_PASSWORD: "${ADMIN_PASSWORD}"
             
