@@ -1,13 +1,21 @@
 include .env
 
 help:
-	@echo "start: Start the containers"
-	@echo "stop: Stop the containers"
-	@echo "db-dump: Dump the database"
-	@echo "db-import: Import the database. Usage: make db-import SQL_FILE=filename.sql"
-	@echo "schema-snapshot: Create a schema snapshot"
-	@echo "schema-apply: Apply the last schema snapshot"
-	@echo "exec: Execute a command in the directus container. Usage: make exec DOCKER_DIRECTUS_NAME=container_name (optional. Default: directus) CMD=command (optional. Default: sh)"
+	@echo ""
+	@echo " start: Start the containers"
+	@echo ""
+	@echo " stop: Stop the containers"
+	@echo ""
+	@echo " db-dump: Dump the database"
+	@echo ""
+	@echo " db-import: Import the database. Usage: make db-import SQL_FILE=filename.sql"
+	@echo ""
+	@echo " schema-snapshot: Create a schema snapshot"
+	@echo ""
+	@echo " schema-apply: Apply the last schema snapshot"
+	@echo ""
+	@echo " exec: Execute a command in the directus container. Usage: make exec DOCKER_DIRECTUS_NAME=container_name (optional. Default: directus) CMD=command (optional. Default: sh)"
+	@echo ""
 
 start:
 	@echo "Starting containers..."
