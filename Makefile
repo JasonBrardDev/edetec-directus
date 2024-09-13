@@ -19,7 +19,4 @@ schema-apply:
 	docker exec $(DOCKER_DIRECTUS_NAME) npx directus schema apply --dry-run ./snapshots/$(shell ls -t ./snapshots | head -1)
 
 exec:
-	docker exec -it $(DOCKER_DIRECTUS_NAME) $(CMD)
-
-exec-sh:
-	docker exec -it $(DOCKER_DIRECTUS_NAME) sh
+	docker exec -it -u root $(DOCKER_DIRECTUS_NAME) $(CMD)
