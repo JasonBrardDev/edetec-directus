@@ -19,12 +19,12 @@ help:
 
 start:
 	@echo "Starting containers..."
-	docker-compose up -d
+	docker compose up -d
 	@echo "Containers started"
 
 stop:
 	@echo "Stopping containers..."
-	docker-compose down
+	docker compose down
 	@echo "Containers stopped"
 
 db-dump:
