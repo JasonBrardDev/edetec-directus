@@ -6,6 +6,8 @@ help:
 	@echo ""
 	@echo " stop: Stop the containers"
 	@echo ""
+	@echo " restart: Restart the containers"
+	@echo ""
 	@echo " db-dump: Dump the database"
 	@echo ""
 	@echo " db-import: Import the database. Usage: make db-import SQL_FILE=filename.sql"
@@ -71,7 +73,7 @@ schema-snapshot:
 
 schema-apply:
 	@echo "Applying schema snapshot..."
-	docker exec $(DOCKER_DIRECTUS_NAME) npx directus schema apply --dry-run ./snapshots/$(shell ls -t ./snapshots | head -1)
+	docker exec $(DOCKER_DIRECTUS_NAME) npx directus schema apply --yes ./snapshots/$(shell ls -t ./snapshots | head -1)
 	@echo "Schema snapshot applied"
 
 exec:
