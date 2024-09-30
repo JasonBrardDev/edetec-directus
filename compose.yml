@@ -61,6 +61,7 @@ services:
             # Directus
             ADMIN_EMAIL: "${ADMIN_EMAIL}"
             ADMIN_PASSWORD: "${ADMIN_PASSWORD}"
+            MAX_PAYLOAD_SIZE: "100mb"
             
             # Make sure to set this in production
             # (see https://docs.directus.io/self-hosted/config-options#general)
